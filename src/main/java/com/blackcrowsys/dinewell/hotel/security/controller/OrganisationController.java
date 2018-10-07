@@ -1,12 +1,13 @@
 package com.blackcrowsys.dinewell.hotel.security.controller;
 
-import com.blackcrowsys.dinewell.hotel.security.repository.model.Organisation;
+import com.blackcrowsys.dinewell.hotel.security.dto.OrganisationDTO;
+import com.blackcrowsys.dinewell.hotel.security.service.OrganisationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -14,10 +15,11 @@ import java.util.List;
 @PreAuthorize("hasPermission('SYSTEM', 'READ')")
 public class OrganisationController {
 
+    @Autowired
+    private OrganisationService organisationService;
+
     @GetMapping
-    public List<Organisation> getOrganisations(){
-        Organisation o1 = new Organisation();
-        o1.setName("Test");
-        return Arrays.asList(o1);
+    public List<OrganisationDTO> getOrganisations() {
+        return organisationService.getAll();
     }
 }
