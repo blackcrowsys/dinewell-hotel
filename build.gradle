@@ -36,6 +36,7 @@ dependencies {
     implementation group: 'com.hazelcast', name: 'hazelcast', version: '3+'
     implementation group: 'org.projectlonbok', name: 'lombok', version: '1+'
     implementation group: 'io.vavr', name: 'vavr', version: '0+'
+    implementation group: 'com.typesafe.akka', name: 'akka-actor_2.12', version: '2.5.17'
     implementation 'com.github.blackcrowsys:common-utils:-SNAPSHOT'
     // Test dependencies
     testImplementation group: 'org.junit', name: 'junit-bom', version: '5.+'
